@@ -1,0 +1,6 @@
+#Others files
+env
+venv
+staticfiles
+.env
+*/migrations
