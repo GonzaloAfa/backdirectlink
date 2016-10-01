@@ -64,3 +64,4 @@ staticfiles
 
 # Ignorando local_settings.py
 local_settings.py
+sendgrid.env
