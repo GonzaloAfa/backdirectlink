@@ -6,14 +6,23 @@ from django.template.loader import get_template
 
 from django.core.mail import EmailMessage, EmailMultiAlternatives
 
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
+
+@method_decorator(csrf_exempt, name='dispatch')
 def index(request):
 
-    send_contact();
+    if request.method == 'POST':
+        name    = request.POST.get('name', False)
+        email   = request.POST.get('email', False)
+        msg     = request.POST.get('msg', False)
+
+        send_contact(name, email, msg);
 
     return HttpResponse("Send Email")
 
 
-def send_contact():
+def send_contact(name, email, msg):
 
     mail = EmailMultiAlternatives(
         subject="Contacto DirectLink",
@@ -25,8 +34,10 @@ def send_contact():
 
     template = get_template('emails/contact.html')
 
-    context = Context({ 'name': "Gonzalo", 'email': "test@afachile.cl",
-                       'msg': "A cuanto tiene los nsm5?",})
+    context = Context({
+            'name': name,
+            'email': email,
+            'msg': msg })
 
     html = template.render(context)
     mail.attach_alternative(html, "text/html")
