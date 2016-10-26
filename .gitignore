@@ -1,8 +1,8 @@
 #Others files
+local_settings.*
 env
 venv
 staticfiles
 .env
 */migrations
 *.pyc
-local_settings.py
