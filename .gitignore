@@ -5,3 +5,4 @@ staticfiles
 .env
 */migrations
 *.pyc
+local_settings.py
