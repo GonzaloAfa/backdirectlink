@@ -1,0 +1,2 @@
+SENDGRID_USER = "jremolcoy"
+SENDGRID_PASSWORD = "mstw4518963"
