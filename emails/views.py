@@ -12,10 +12,10 @@ from django.utils.decorators import method_decorator
 @method_decorator(csrf_exempt, name='dispatch')
 def index(request):
 
-    if request.method == 'POST':
-        name    = request.POST.get('name', False)
-        email   = request.POST.get('email', False)
-        msg     = request.POST.get('msg', False)
+    if request.method == 'GET':
+        name    = request.GET.get('name', False)
+        email   = request.GET.get('email', False)
+        msg     = request.GET.get('msg', False)
 
         send_contact(name, email, msg);
 
