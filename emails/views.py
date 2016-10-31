@@ -19,7 +19,7 @@ def index(request):
 
         send_contact(name, email, msg);
 
-    return HttpResponse("Send Email")
+    return HttpResponse("Send")
 
 
 def send_contact(name, email, msg):
