@@ -117,8 +117,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 EMAIL_BACKEND = "sgbackend.SendGridBackend"
-EMAIL_HOST_USER = 'sendgrid_username'
-EMAIL_HOST_PASSWORD = 'sendgrid_password'
+#EMAIL_HOST_USER = 'sendgrid_username'
+#EMAIL_HOST_PASSWORD = 'sendgrid_password'
 
 PATH = '/var/www/backdirectlink/'
 
