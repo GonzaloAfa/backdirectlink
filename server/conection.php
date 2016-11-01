@@ -1,10 +1,10 @@
 <?php
 
-  $url = "http://back.perfilparlamentario.info/emails/"
+  $url = "http://back.perfilparlamentario.info/emails/";
 
-  public function contactEmail($name='', $email='', $msg=''){
+  function contactEmail($name='', $email='', $msg=''){
 
-    $conection = curl_init($url);
+    $conection = curl_init($url+"?name="+$name+"&email="+$email+"&msg="+$msg);
     curl_setopt($conection, CURLOPT_RETURNTRANSFER,1);
     $result =  curl_exec($conection);
 
