@@ -14,7 +14,6 @@ from django.utils.decorators import method_decorator
 def index(request):
 
     if request.method == 'GET':
-        print "GET"
         name    = request.GET.get('name', False)
         email   = request.GET.get('email', False)
         msg     = request.GET.get('msg', False)
@@ -22,11 +21,9 @@ def index(request):
         send_contact(name, email, msg);
 
     if request.method == 'POST':
-        print "POST"
         json_data = json.loads(request.body)
 
         try:
-            print json_data
             name    = json_data['name']
             email   = json_data['email']
             msg     = json_data['msg']
@@ -43,13 +40,11 @@ def index(request):
 
 def send_contact(name, email, msg):
 
-    print "send_contact"
-
     mail = EmailMultiAlternatives(
         subject="Contacto DirectLink",
         body="Contacto",
         from_email="Directlink <contacto@directlink.cl>",
-        to=["gonzalo@afachile.cl"],
+        to=["gonzalo@afachile.cl", "ventas@directlink.cl"],
         headers={"Reply-To": "ventas@directlink.cl"}
     )
 
