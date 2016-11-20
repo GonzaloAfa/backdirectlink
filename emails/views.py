@@ -43,6 +43,8 @@ def index(request):
 
 def send_contact(name, email, msg):
 
+    print "send_contact"
+
     mail = EmailMultiAlternatives(
         subject="Contacto DirectLink",
         body="Contacto",
