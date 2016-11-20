@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render, render_to_response, get_object_or_404
 from django.http import HttpResponse
 
@@ -13,16 +14,36 @@ from django.utils.decorators import method_decorator
 def index(request):
 
     if request.method == 'GET':
+        print "GET"
         name    = request.GET.get('name', False)
         email   = request.GET.get('email', False)
         msg     = request.GET.get('msg', False)
 
         send_contact(name, email, msg);
 
+    if request.method == 'POST':
+        print "POST"
+        json_data = json.loads(request.body)
+
+        try:
+            print json_data
+            name    = json_data['name']
+            email   = json_data['email']
+            msg     = json_data['msg']
+
+            send_contact(name, email, msg);
+
+        except KeyError:
+            HttpResponseServerError("Malformed data!")
+
+        HttpResponse("Got json data")
+
     return HttpResponse("Send")
 
 
 def send_contact(name, email, msg):
+
+    print "send_contact"
 
     mail = EmailMultiAlternatives(
         subject="Contacto DirectLink",
