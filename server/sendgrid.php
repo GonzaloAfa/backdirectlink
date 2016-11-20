@@ -8,9 +8,9 @@
     $ch = curl_init( $url );
 
     $payload = json_encode(array(
-                  "customer" => $data,
+                  "name"  => $name,
                   "email" => $email,
-                  "msg" => $msg));
+                  "msg"   => $msg));
 
     curl_setopt( $ch, CURLOPT_POSTFIELDS, $payload );
     curl_setopt( $ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
