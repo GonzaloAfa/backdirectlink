@@ -44,7 +44,7 @@ def send_contact(name, email, msg):
         subject="Contacto DirectLink",
         body="Contacto",
         from_email="Directlink <contacto@directlink.cl>",
-        to=["gonzalo@afachile.cl", "ventas@directlink.cl"],
+        to=["ventas@directlink.cl"],
         headers={"Reply-To": "ventas@directlink.cl"}
     )
 
